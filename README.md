@@ -25,20 +25,20 @@ O sistema foi projetado para uso interno, com governança, documentação e prep
 ```mermaid
 
 flowchart TD
-  A[Inicio PDF entrada] --> B{Detectar PDFs}
+  A[Inicio PDF entrada] --> B[Detectar PDFs]
 
   B -->|Nenhum| Z[Fim]
   B -->|OK| C[Mover para processando]
 
   C --> D[Extrair dados]
-  D --> E{Dados OK}
+  D --> E[Dados OK]
 
   E -->|Nao| E1[Registrar erro]
   E1 --> E2[Mover para erro]
   E2 --> Z
 
   E -->|Sim| F[Resolver fornecedor]
-  F --> G{Fornecedor OK}
+  F --> G[Fornecedor OK]
 
   G -->|Nao| G1[Registrar pendencia]
   G1 --> E2

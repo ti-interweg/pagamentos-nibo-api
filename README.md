@@ -1,28 +1,27 @@
 # Pagamentos Nibo API
 
-Automação do processamento de pagamentos financeiros via **API do Nibo**, a partir de **arquivos PDF de boletos**, com foco em segurança, rastreabilidade e eliminação de trabalho manual no financeiro.
+Automação do processamento de pagamentos financeiros via API do Nibo, a partir de arquivos PDF de boletos, com foco em segurança, rastreabilidade e eliminação de trabalho manual no financeiro.
 
 ---
 
-## Visão Geral
+Visão Geral
 
 Este projeto implementa um fluxo automatizado para:
 
-- Ler PDFs de boletos recebidos  
-- Extrair dados financeiros relevantes  
-- Resolver o fornecedor no Nibo  
-- Montar o payload conforme contrato da API  
-- Enviar o pagamento via POST  
-- Garantir idempotência (sem duplicidade)  
-- Organizar arquivos e registrar evidências  
+- Ler PDFs de boletos recebidos
+- Extrair dados financeiros relevantes
+- Resolver o fornecedor no Nibo
+- Montar o payload conforme contrato da API
+- Enviar o pagamento via POST
+- Garantir idempotência (sem duplicidade)
+- Organizar arquivos e registrar evidências
 
 O sistema foi projetado para uso interno, com governança, documentação e preparo para auditoria.
 
 ---
 
-## Fluxograma (alto nível)
+Fluxograma (alto nível)
 
-```mermaid
 flowchart TD
   A[Inicio PDF entrada] --> B[Detectar PDFs]
 
@@ -58,10 +57,10 @@ flowchart TD
 
   M -->|Sim| N[Salvar evidencia]
   N --> K
-` ``` `
 
+---
 
-ESTRUTURA DO PROJETO
+Estrutura do Projeto
 
 finance-bots/
 ├─ boletos/
@@ -85,8 +84,15 @@ finance-bots/
 ├─ .env.example       Exemplo de variáveis de ambiente
 └─ README.md
 
+---
+
 Pré-requisitos
-Python 3.10 ou superior / Git / Token válido da API do Nibo
+
+- Python 3.10 ou superior
+- Git
+- Token válido da API do Nibo
+
+---
 
 Instalação
 
@@ -94,16 +100,23 @@ python -m venv .venv
 .\.venv\Scripts\activate
 pip install -r requirements.txt
 
+---
+
 Configuração
 
 NIBO_BASE_URL=https://api.nibo.com.br
 NIBO_TOKEN=SEU_TOKEN_REAL
 NIBO_COMPANY_ID=ID_DA_EMPRESA
 
+O arquivo .env nunca deve ser versionado.
+
+---
+
 Execução
 
 python app.py
 
+---
 
 Pasta docs/
 
@@ -112,6 +125,7 @@ docs/
 ├─ 02-contrato-dados.md
 ├─ 03-regras-negocio.md
 └─ 04-erros-e-excecoes.md
+
 
 
 

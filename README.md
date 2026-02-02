@@ -8,13 +8,13 @@ Automação do processamento de pagamentos financeiros via **API do Nibo**, a pa
 
 Este projeto implementa um fluxo automatizado para:
 
-- Ler PDFs de boletos recebidos
-- Extrair dados financeiros relevantes
-- Resolver o fornecedor no Nibo
-- Montar o payload conforme contrato da API
-- Enviar o pagamento via POST
-- Garantir idempotência (sem duplicidade)
-- Organizar arquivos e registrar evidências
+- Ler PDFs de boletos recebidos  
+- Extrair dados financeiros relevantes  
+- Resolver o fornecedor no Nibo  
+- Montar o payload conforme contrato da API  
+- Enviar o pagamento via POST  
+- Garantir idempotência (sem duplicidade)  
+- Organizar arquivos e registrar evidências  
 
 O sistema foi projetado para uso interno, com governança, documentação e preparo para auditoria.
 
@@ -22,7 +22,7 @@ O sistema foi projetado para uso interno, com governança, documentação e prep
 
 ## Fluxograma (alto nível)
 
-
+```mermaid
 flowchart TD
   A[Inicio PDF entrada] --> B[Detectar PDFs]
 
@@ -58,6 +58,7 @@ flowchart TD
 
   M -->|Sim| N[Salvar evidencia]
   N --> K
+
 
 ESTRUTURA DO PROJETO
 

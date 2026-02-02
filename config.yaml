@@ -1,0 +1,32 @@
+paths:
+  entrada: "boletos/entrada"
+  processados: "boletos/processados"
+  erro: "boletos/erro"
+
+nibo:
+  base_url: "https://api.nibo.com.br"
+  token_env: "NIBO_API_TOKEN"
+
+
+mappings:
+  bradesco_accounts:
+    A:
+      label: "Bradesco Conta A"
+    B:
+      label: "Bradesco Conta B"
+    C:
+      label: "Bradesco Conta C"
+
+  nibo_accounts:
+    N1:
+      label: "Nibo Conta 1"
+    N2:
+      label: "Nibo Conta 2"
+    N3:
+      label: "Nibo Conta 3"
+
+defaults:
+  stakeholderId: "c22758c6-78ec-48a7-a164-e9285c4eb8e8"
+  categoryId: "ec96c24b-a8f3-4c4e-996e-98d9b86d7bc7"
+  costCenterId: "35e73eaf-bb6c-4e46-af92-82efa7e61a99"
+  costCenterValueType: 1

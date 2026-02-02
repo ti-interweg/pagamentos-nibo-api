@@ -22,7 +22,6 @@ O sistema foi projetado para uso interno, com governança, documentação e prep
 
 ## Fluxograma (alto nível)
 
-```mermaid
 
 flowchart TD
   A[Inicio PDF entrada] --> B[Detectar PDFs]

@@ -46,13 +46,13 @@ flowchart TD
   G -->|Sim| H[Montar payload]
   H --> I[Gerar idempotencia]
 
-  I --> J{Ja processado}
+  I --> J[Ja processado]
 
   J -->|Sim| K[Mover para processados]
   K --> Z
 
   J -->|Nao| L[POST Nibo]
-  L --> M{Sucesso}
+  L --> M[Sucesso]
 
   M -->|Nao| M1[Erro API]
   M1 --> E2

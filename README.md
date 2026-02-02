@@ -23,39 +23,41 @@ O sistema foi projetado para uso interno, com governança, documentação e prep
 ## Fluxograma (alto nível)
 
 ```mermaid
+
 flowchart TD
-  A[Inicio: PDF chega na pasta boletos/entrada] --> B{Detectar PDFs novos}
+  A[Inicio PDF entrada] --> B{Detectar PDFs}
 
   B -->|Nenhum| Z[Fim]
-  B -->|Encontrou| C[Mover PDF para boletos/processando]
+  B -->|OK| C[Mover para processando]
 
-  C --> D[Extrair dados do PDF]
-  D --> E{Dados obrigatorios OK}
+  C --> D[Extrair dados]
+  D --> E{Dados OK}
 
   E -->|Nao| E1[Registrar erro]
-  E1 --> E2[Mover PDF para boletos/erro]
+  E1 --> E2[Mover para erro]
   E2 --> Z
 
-  E -->|Sim| F[Resolver fornecedor stakeholderId]
-  F --> G{Fornecedor encontrado}
+  E -->|Sim| F[Resolver fornecedor]
+  F --> G{Fornecedor OK}
 
-  G -->|Nao| G1[Registrar erro ou pendencia]
+  G -->|Nao| G1[Registrar pendencia]
   G1 --> E2
 
-  G -->|Sim| H[Montar payload pagamento]
-  H --> I[Gerar chave idempotencia]
+  G -->|Sim| H[Montar payload]
+  H --> I[Gerar idempotencia]
 
-  I --> J{Pagamento ja processado}
-  J -->|Sim| K[Mover PDF para boletos/processados]
+  I --> J{Ja processado}
+
+  J -->|Sim| K[Mover para processados]
   K --> Z
 
-  J -->|Nao| L[POST pagamento API Nibo]
-  L --> M{Resposta sucesso}
+  J -->|Nao| L[POST Nibo]
+  L --> M{Sucesso}
 
-  M -->|Nao| M1[Registrar erro API]
+  M -->|Nao| M1[Erro API]
   M1 --> E2
 
-  M -->|Sim| N[Salvar evidencia pagamento]
+  M -->|Sim| N[Salvar evidencia]
   N --> K
 
 ESTRUTURA DO PROJETO

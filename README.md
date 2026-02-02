@@ -1,4 +1,4 @@
-# pagamentos-nibo-api
+# Pagamentos-nibo-api
 
 Automação de pagamentos financeiros via API do Nibo a partir de arquivos PDF.
 
